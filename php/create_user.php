@@ -11,8 +11,8 @@ for ($i = 0; $i < 8; ++$i) {
 $method= "POST";
 $APIEndpoint = "/v1/user";
 $timestamp = time();
-$apiKey = "SBJCRTRLGL27JL6G9GRJ";
-$apiSecret = "LXP65x4EDCk0ft9UDintsqeCsU1SEMhySJ1rmNckiUgd2yRmKlotNk0HsYUSEK0d";
+$apiKey = "<your_api_key>";
+$apiSecret = "<your_api_secret_key>";
 /*
  * generate to_sign
  * to_sign = toUpperCase(Method) + Api-Endpoint + Salt + Timestamp + API-Key + API-Secret
@@ -40,14 +40,14 @@ curl_setopt_array($curl, array(
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
   CURLOPT_CUSTOMREQUEST => 'POST',
   CURLOPT_POSTFIELDS =>'{
-    "email": "hello@borrowbud.com",
+    "email": "ankit+phpscript12jan01_02@tazapay.com",
     "country": "SG",
     "contact_code": "+65",
     "contact_number": "",
     "partners_customer_id": "12345",
     "ind_bus_type": "Individual",
-    "first_name": "BorrowBud",
-    "last_name": "Support"
+    "first_name": "Ankit",
+    "last_name": "K"
 }',
   CURLOPT_HTTPHEADER => array(
         'accesskey: '.$apiKey,
