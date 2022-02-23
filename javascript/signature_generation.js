@@ -9,12 +9,12 @@ async function makeRequest(method, urlPath, body = null) {
   try {
     httpMethod = method;
     httpBaseURL = "api-sandbox.tazapay.com";
-    httpURLPath = urlPath;
+    httpURLPathforSign = urlPath.split("?")[0]; // use only path without params.
     salt = generateRandomString(6);
     timestamp = Math.round(new Date().getTime() / 1000);
     signature = sign(
       httpMethod,
-      httpURLPath,
+      httpURLPathforSign,
       salt,
       timestamp,
       accessKey,
@@ -24,7 +24,7 @@ async function makeRequest(method, urlPath, body = null) {
     const options = {
       hostname: httpBaseURL,
       port: 443,
-      path: httpURLPath,
+      path: urlPath,
       method: httpMethod,
       headers: {
         "Content-Type": "application/json",
